@@ -43,5 +43,5 @@ $newGameTag->appendChild($attr);
 $root = $doc->getElementsByTagName('games')->item(0);
 $root->appendChild($newGameTag);
 $doc->save("games.xml");
-header("Location: http://localhost:8080/");
+header("Location: index.php");
 die();

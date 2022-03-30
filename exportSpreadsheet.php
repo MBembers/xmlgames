@@ -26,21 +26,25 @@ for ($i = 0; $i < $games->length; $i++) {
   $sheet->setCellValue('C' . ($i + 2), $game->getAttribute("author"));
   $sheet->setCellValue('D' . ($i + 2), $game->getAttribute("magazine"));
 
-  $drawing = new Drawing();
-  $drawing->setName('Gfx');
+  try {
+    $drawing = new Drawing();
+    $drawing->setName('Gfx');
 
-  $drawing->setPath('./images/' . $game->getAttribute("img"));
+    $drawing->setPath('./images/' . $game->getAttribute("img"));
 
-  $drawing->setHeight(200); // ewentualna wielkość
+    $drawing->setHeight(200); // ewentualna wielkość
 
-  $comment = $sheet->getComment('A' . ($i + 2));
-  $comment->setBackgroundImage($drawing);
-  $comment->setSizeAsBackgroundImage(); //jeśli chcemy komentarz wielkości obrazka
+    $comment = $sheet->getComment('A' . ($i + 2));
+    $comment->setBackgroundImage($drawing);
+    $comment->setSizeAsBackgroundImage(); //jeśli chcemy komentarz wielkości obrazka
+  } catch (Exception $ex) {
+    continue;
+  }
 }
 
 $writer = new Xlsx($spreadsheet);
 
 $writer->save('php://output');
 
-header("Location: http://localhost:8080/");
+// header("Location: index.php");
 die();

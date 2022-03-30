@@ -12,8 +12,8 @@
 <body>
   <div class="container">
     <div class="switch">
-      <a href="http://localhost:8080">Pozycje</a>
-      <a href="http://localhost:8080/viewGames.php">Podgląd</a>
+      <a href="index.php">Pozycje</a>
+      <a href="viewGames.php">Podgląd</a>
     </div>
     <table>
       <thead>

@@ -12,7 +12,7 @@
 <body>
   <div class="container">
     <div class="switch">
-      <a href="/">Pozycje</a>
+      <a href="index.php">Pozycje</a>
       <a href="viewGames.php">Podgląd</a>
       <a href="exportSpreadsheet.php">Pobierz Arkusz</a>
     </div>
@@ -30,9 +30,14 @@
       $doc->load("games.xml");
 
       $games = $doc->getElementsByTagName('game');
+      $id = -1;
+      if (isset($_GET["id"])) {
+        $id = $_GET["id"];
+      }
       for ($i = 0; $i < $games->length; $i++) {
         $game = $games->item($i);
-        if ($_GET["id"] == $game->getAttribute("id")) {
+
+        if ($id == $game->getAttribute("id")) {
           echo '<tr>
           <form action="editGame.php" method="get">
           <input type="hidden" name="id" value="' . $game->getAttribute("id") . '">

@@ -19,5 +19,5 @@ foreach ($doc->getElementsByTagName('game') as $game) {
 }
 
 $doc->save("games.xml");
-header("Location: http://localhost:8080/");
+header("Location: index.php");
 die();

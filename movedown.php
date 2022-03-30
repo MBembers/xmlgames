@@ -23,5 +23,5 @@ if ($index1 != -1 && $index1 < count($doc->getElementsByTagName('game')) - 1) {
   $doc->save("games.xml");
 }
 
-header("Location: /");
+header("Location: index.php");
 die();
